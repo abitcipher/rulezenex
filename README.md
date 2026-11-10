@@ -1,4 +1,4 @@
-# rules
+# Rules - custom process JDM
 
 [GoRules ZEN](https://github.com/gorules/zen) for Elixir: evaluates JSON
 Decision Model (JDM) graphs in-process, through a Rust NIF.
