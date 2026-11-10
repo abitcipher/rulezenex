@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    {"id": "input", "type": "inputNode", "name": "Request", "position": {"x": 40, "y": 200}},
+    {
+      "id": "check",
+      "type": "expressionNode",
+      "name": "Tier",
+      "position": {"x": 300, "y": 200},
+      "content": {
+        "expressions": [
+          {"id": "e1", "key": "valid", "value": "order.amount > 0"},
+          {"id": "e2", "key": "tier", "value": "(order.amount >= 100) ? 'high' : 'low'"}
+        ]
+      }
+    },
+    {"id": "output", "type": "outputNode", "name": "Response", "position": {"x": 560, "y": 200}}
+  ],
+  "edges": [
+    {"id": "in", "sourceId": "input", "targetId": "check", "type": "edge"},
+    {"id": "out", "sourceId": "check", "targetId": "output", "type": "edge"}
+  ]
+}

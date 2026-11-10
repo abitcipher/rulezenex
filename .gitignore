@@ -1,0 +1,9 @@
+/_build/
+/deps/
+/doc/
+/cover/
+/priv/native/
+/native/rules/target/
+erl_crash.dump
+*.ez
+rules-*.tar
