@@ -27,9 +27,9 @@ jobs:
             _build
             ~/.cargo/registry
             ~/.cargo/git
-          key: ${{ runner.os }}-rules-${{ hashFiles('mix.lock', 'native/rules/Cargo.lock') }}
+          key: ${{ runner.os }}-rulezenex-${{ hashFiles('mix.lock', 'native/rulezenex/Cargo.lock') }}
       - run: mix deps.get
       - run: mix format --check-formatted
-      - run: cargo fmt --check --manifest-path native/rules/Cargo.toml
-      - run: cargo clippy --manifest-path native/rules/Cargo.toml -- -D warnings
+      - run: cargo fmt --check --manifest-path native/rulezenex/Cargo.toml
+      - run: cargo clippy --manifest-path native/rulezenex/Cargo.toml -- -D warnings
       - run: mix test

@@ -1,4 +1,4 @@
-## Rules - Elixir NIF for BRE
+## Rulezenex - Elixir NIF for BRE
 
 [GoRules ZEN](https://github.com/gorules/zen) for Elixir: evaluates JDM graphs in-process through a Rust NIF.
 
@@ -13,22 +13,22 @@ Graphs are the JSON that the [JDM Editor](https://github.com/gorules/jdm-editor)
 Add to `mix.exs` (a Rust toolchain is needed to compile):
 
 ```elixir
-{:rules, github: "abitcipher/rules", tag: "v0.1.0"}
+{:rulezenex, github: "abitcipher/rulezenex", tag: "v0.1.0"}
 ```
 
 ```elixir
 graph = "rule.json" |> File.read!() |> Jason.decode!()
 
-RulesEngine.validate(graph)
+RulezenexEngine.validate(graph)
 #=> :ok
 
-RulesEngine.evaluate(graph, %{"order" => %{"amount" => 120}})
+RulezenexEngine.evaluate(graph, %{"order" => %{"amount" => 120}})
 #=> {:ok, %{"tier" => "high", "valid" => true}}
 
-RulesEngine.evaluate(graph, context, trace: true)
+RulezenexEngine.evaluate(graph, context, trace: true)
 #=> {:ok, %{..., "trace" => %{...}}}
 
-RulesEngine.simulate(graph, context)
+RulezenexEngine.simulate(graph, context)
 #=> {:ok, %{"result" => _, "trace" => _, "performance" => _}}
 ```
 
@@ -37,14 +37,14 @@ block the BEAM's normal schedulers.
 
 ### Prebuilt library
 
-Set `RULES_NIF_PREBUILT=1` at compile time to skip building the crate and
-load `priv/native/librules.so` of the `:rules` application instead.
+Set `RULEZENEX_NIF_PREBUILT=1` at compile time to skip building the crate and
+load `priv/native/librulezenex.so` of the `:rulezenex` application instead.
 
 ### Develop
 
 ```sh
 mix deps.get
 mix test
-cargo fmt --check --manifest-path native/rules/Cargo.toml
-cargo clippy --manifest-path native/rules/Cargo.toml -- -D warnings
+cargo fmt --check --manifest-path native/rulezenex/Cargo.toml
+cargo clippy --manifest-path native/rulezenex/Cargo.toml -- -D warnings
 ```

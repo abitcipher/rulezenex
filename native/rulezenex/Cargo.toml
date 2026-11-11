@@ -1,12 +1,12 @@
 [package]
-name = "rules"
+name = "rulezenex"
 version = "0.1.0"
 edition = "2021"
 publish = false
 description = "GoRules ZEN (JDM decision graphs) as an Erlang NIF."
 
 [lib]
-name = "rules"
+name = "rulezenex"
 crate-type = ["cdylib"]
 
 [dependencies]

@@ -77,4 +77,4 @@ fn nif_validate(graph: String) -> NifResult<(Atom, String)> {
     }
 }
 
-rustler::init!("Elixir.RulesEngine");
+rustler::init!("Elixir.RulezenexEngine");

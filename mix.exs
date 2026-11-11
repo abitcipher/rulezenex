@@ -1,17 +1,17 @@
-defmodule Rules.MixProject do
+defmodule Rulezenex.MixProject do
   use Mix.Project
 
   @version "0.1.0"
 
   def project do
     [
-      app: :rules,
+      app: :rulezenex,
       version: @version,
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: "GoRules ZEN (JSON Decision Model graphs) for Elixir, as a NIF",
-      source_url: "https://github.com/abitcipher/rules"
+      source_url: "https://github.com/abitcipher/rulezenex"
     ]
   end
 

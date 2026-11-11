@@ -1,21 +1,21 @@
-defmodule RulesEngine do
+defmodule RulezenexEngine do
   @moduledoc """
   GoRules ZEN evaluating JSON Decision Model (JDM) graphs in-process.
 
   A graph is the map the JDM Editor produces; a context is any map.
 
-      iex> RulesEngine.evaluate(graph, %{"amount" => 120})
+      iex> RulezenexEngine.evaluate(graph, %{"amount" => 120})
       {:ok, %{"tier" => "high"}}
 
-  Set `RULES_NIF_PREBUILT=1` at compile time to load a library built
-  elsewhere (`priv/native/librules.so` of this application) instead of
+  Set `RULEZENEX_NIF_PREBUILT=1` at compile time to load a library built
+  elsewhere (`priv/native/librulezenex.so` of this application) instead of
   compiling the crate.
   """
   use Rustler,
-    otp_app: :rules,
-    crate: "rules",
+    otp_app: :rulezenex,
+    crate: "rulezenex",
     mode: :release,
-    skip_compilation?: System.get_env("RULES_NIF_PREBUILT") == "1"
+    skip_compilation?: System.get_env("RULEZENEX_NIF_PREBUILT") == "1"
 
   @doc """
   Evaluates `graph` with `context`. Returns `{:ok, result}` with the output
