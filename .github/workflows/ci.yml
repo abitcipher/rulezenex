@@ -25,9 +25,11 @@ jobs:
           path: |
             deps
             _build
+            priv/native
+            native/rulezenex/target
             ~/.cargo/registry
             ~/.cargo/git
-          key: ${{ runner.os }}-rulezenex-${{ hashFiles('mix.lock', 'native/rulezenex/Cargo.lock') }}
+          key: ${{ runner.os }}-rulezenex-v2-${{ hashFiles('mix.lock', 'native/rulezenex/Cargo.lock') }}
       - run: mix deps.get
       - run: mix format --check-formatted
       - run: cargo fmt --check --manifest-path native/rulezenex/Cargo.toml
