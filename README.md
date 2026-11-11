@@ -1,12 +1,14 @@
-# Rules - custom process JDM
+## Rules - Elixir NIF for BRE
 
-[GoRules ZEN](https://github.com/gorules/zen) for Elixir: evaluates JSON
-Decision Model (JDM) graphs in-process, through a Rust NIF.
+[GoRules ZEN](https://github.com/gorules/zen) for Elixir: evaluates JDM graphs in-process through a Rust NIF.
 
-Graphs are the JSON that the [JDM Editor](https://github.com/gorules/jdm-editor)
-produces.
++ NIF - Native Implemented Function
++ BRE - Business Rules Engine
++ JDM - JSON Decision Model
 
-## Use
+Graphs are the JSON that the [JDM Editor](https://github.com/gorules/jdm-editor) produces.
+
+### Use
 
 Add to `mix.exs` (a Rust toolchain is needed to compile):
 
@@ -33,12 +35,12 @@ RulesEngine.simulate(graph, context)
 Evaluation runs on a dirty CPU scheduler, so a long evaluation doesn't
 block the BEAM's normal schedulers.
 
-## Prebuilt library
+### Prebuilt library
 
 Set `RULES_NIF_PREBUILT=1` at compile time to skip building the crate and
 load `priv/native/librules.so` of the `:rules` application instead.
 
-## Develop
+### Develop
 
 ```sh
 mix deps.get
