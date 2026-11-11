@@ -13,7 +13,7 @@ Graphs are the JSON that the [JDM Editor](https://github.com/gorules/jdm-editor)
 Add to `mix.exs` (a Rust toolchain is needed to compile):
 
 ```elixir
-{:rulezenex, github: "abitcipher/rulezenex", tag: "v0.1.0"}
+{:rulezenex, "~> 0.1.1"}
 ```
 
 ```elixir
@@ -48,3 +48,7 @@ mix test
 cargo fmt --check --manifest-path native/rulezenex/Cargo.toml
 cargo clippy --manifest-path native/rulezenex/Cargo.toml -- -D warnings
 ```
+
+### License
+
+[MIT](LICENSE). GoRules ZEN is MIT licensed by GoRules.
